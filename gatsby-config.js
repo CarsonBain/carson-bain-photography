@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: 'Carson Bain Photography',
@@ -6,7 +10,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-contentful',
       options: {
-        accessToken: 'yyuxONiBm04Jj9UulN7oqdyfOrppVWHUZ_MnnKaTPH4',
+        accessToken: process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN,
         spaceId: 'kkahdtur6i1v',
       },
     },
