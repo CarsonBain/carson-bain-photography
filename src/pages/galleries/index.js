@@ -38,7 +38,7 @@ export const query = graphql`
         title
         featureImage {
           fluid(maxWidth: 480) {
-            ...GatsbyContentfulFluid_withWebp
+            ...GatsbyContentfulFluid_withWebp_noBase64
           }
         }
       }

@@ -50,7 +50,7 @@ export const query = graphql`
     contentfulHomePage {
       collageImages {
         fluid(maxWidth: 600) {
-          ...GatsbyContentfulFluid_withWebp
+          ...GatsbyContentfulFluid_withWebp_noBase64
         }
       }
     }

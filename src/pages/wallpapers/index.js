@@ -42,7 +42,7 @@ export const query = graphql`
     contentfulWallpaperPage {
       wallpaperImage {
         fluid(maxWidth: 600) {
-          ...GatsbyContentfulFluid_withWebp
+          ...GatsbyContentfulFluid_withWebp_noBase64
         }
         file {
           url

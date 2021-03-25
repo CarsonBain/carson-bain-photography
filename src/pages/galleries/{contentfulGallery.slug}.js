@@ -4,7 +4,6 @@ import Img from 'gatsby-image';
 import Layout from '../../components/layout';
 
 export default function GalleryPage(props) {
-  console.log(props);
   return (
     <Layout>
       <div className='space-y-6 md:space-y-16 flex-col'>
@@ -25,8 +24,8 @@ export const query = graphql`
   query($id: String) {
     contentfulGallery(id: { eq: $id }) {
       images {
-        fluid(maxWidth: 1024) {
-          ...GatsbyContentfulFluid_withWebp
+        fluid {
+          ...GatsbyContentfulFluid_withWebp_noBase64
         }
       }
     }

@@ -40,11 +40,11 @@ export default function Layout({ children }) {
         <main className='relative mt-16 md:mt-24'>{children}</main>
       </div>
       <footer className='mt-16 w-full bg-blue-50 text-blue-900'>
-        <div className='max-w-screen-lg px-6 md:px-16 mx-auto flex flex-col space-y-4 justify-items-center items-center py-16'>
+        <div className='max-w-screen-lg px-6 md:px-16 mx-auto flex flex-col space-y-6 justify-items-center items-center py-16'>
           <div className='text-base font-semibold'>
-            <ul className='flex space-x-4'>
+            <ul className='flex space-x-8'>
               <li>
-                <Link className='py-1' to='/work'>
+                <Link className='py-1' to='/galleries'>
                   Work
                 </Link>
               </li>
