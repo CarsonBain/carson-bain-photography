@@ -1,19 +1,18 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from "gatsby-plugin-image";
 import Layout from '../../components/layout';
 
 export default function GalleryPage(props) {
   return (
     <Layout>
       <div className='space-y-6 md:space-y-16 flex-col'>
-        {props.data.contentfulGallery.images.map((image) => (
-          <Img
-            fluid={image.fluid}
-            key={image.fluid.src}
+        {props.data.contentfulGallery.images.map((image, index) => (
+          <GatsbyImage
+            image={image.gatsbyImageData}
+            key={index}
             alt={image.fileName}
-            placeholderStyle={{ filter: `blur(1.5rem)` }}
-          ></Img>
+            ></GatsbyImage>
         ))}
       </div>
     </Layout>
@@ -24,9 +23,9 @@ export const query = graphql`
   query($id: String) {
     contentfulGallery(id: { eq: $id }) {
       images {
-        fluid {
-          ...GatsbyContentfulFluid_withWebp_noBase64
-        }
+        gatsbyImageData(
+          layout: CONSTRAINED
+          formats: [AUTO, WEBP])
       }
     }
   }

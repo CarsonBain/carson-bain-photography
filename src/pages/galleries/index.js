@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { graphql, Link } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from "gatsby-plugin-image";
 import Layout from '../../components/layout';
 
 const GalleriesPage = ({ data }) => {
@@ -17,12 +17,11 @@ const GalleriesPage = ({ data }) => {
             <div className="absolute text-white text-2xl md:text-3xl font-semibold z-20 h-full w-full flex justify-center items-center transition-opacity group-hover:opacity-0 duration-300">
               {node.title}
             </div>
-            <Img
-              fluid={node.featureImage.fluid}
-              key={node.featureImage.fluid.src}
-              alt={node.featureImage.fileName}
-              placeholderStyle={{ filter: `blur(1.5rem)` }}
-            ></Img>
+            <GatsbyImage
+              image={node.featureImage.gatsbyImageData}
+              key={node.featureImage}
+              alt={node.title}
+             ></GatsbyImage>
           </Link>
         ))}
       </div>
@@ -37,13 +36,14 @@ export const query = graphql`
         slug
         title
         featureImage {
-          fluid(maxWidth: 480) {
-            ...GatsbyContentfulFluid_withWebp_noBase64
+          gatsbyImageData(
+            layout: CONSTRAINED
+            width: 480
+            formats: [AUTO, WEBP])
           }
         }
       }
     }
-  }
 `;
 
 export default GalleriesPage;

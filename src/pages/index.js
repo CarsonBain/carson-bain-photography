@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from "gatsby-plugin-image";
 import Layout from '../components/layout';
 import Draggable from 'react-draggable';
 
@@ -11,14 +11,13 @@ const IndexPage = ({ data }) => {
       <div className="relative flex justify-center items-center -space-x-8">
         {data.contentfulHomePage.collageImages.map((image) => {
           return (
-            <Draggable key={image.fluid.src} bounds="body">
+            <Draggable key={image} bounds="body">
               <div className="max-w-sm cursor-move w-full">
-                <Img
-                  fluid={image.fluid}
+                <GatsbyImage
+                  image={image.gatsbyImageData}
                   alt={image.title}
-                  placeholderStyle={{ filter: `blur(1.5rem)` }}
-                  draggable={false}
-                ></Img>
+                  draggable={false}>
+                </GatsbyImage>
               </div>
             </Draggable>
           );
@@ -49,9 +48,10 @@ export const query = graphql`
   {
     contentfulHomePage {
       collageImages {
-        fluid(maxWidth: 600) {
-          ...GatsbyContentfulFluid_withWebp_noBase64
-        }
+        gatsbyImageData(
+          layout: CONSTRAINED
+          width: 600
+          formats: [AUTO, WEBP])
       }
     }
   }
