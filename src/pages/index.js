@@ -11,7 +11,7 @@ const IndexPage = ({ data }) => {
       <div className="relative flex justify-center items-center -space-x-8">
         {data.contentfulHomePage.collageImages.map((image) => {
           return (
-            <Draggable key={image.fluid.src} bounds="parent">
+            <Draggable key={image.fluid.src} bounds="body">
               <div className="max-w-sm cursor-move w-full">
                 <Img
                   fluid={image.fluid}

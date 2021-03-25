@@ -7,7 +7,7 @@ export default function GalleryPage(props) {
   console.log(props);
   return (
     <Layout>
-      <div className="space-y-6 md:space-y-16 flex-col">
+      <div className='space-y-6 md:space-y-16 flex-col'>
         {props.data.contentfulGallery.images.map((image) => (
           <Img
             fluid={image.fluid}
@@ -25,7 +25,7 @@ export const query = graphql`
   query($id: String) {
     contentfulGallery(id: { eq: $id }) {
       images {
-        fluid {
+        fluid(maxWidth: 1024) {
           ...GatsbyContentfulFluid_withWebp
         }
       }
