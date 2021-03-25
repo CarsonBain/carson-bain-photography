@@ -6,7 +6,7 @@ import Layout from '../../components/layout';
 const WallpapersPage = ({ data }) => {
   return (
     <Layout>
-      <div className='grid grid-cols-2 sm:grid-cols-4 gap-12'>
+      <div className='grid grid-cols-2 sm:grid-cols-4 gap-8 lg:gap-12'>
         {data.contentfulWallpaperPage.wallpaperImage.map((image) => (
           <div>
             <Img
