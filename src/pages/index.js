@@ -24,7 +24,7 @@ const IndexPage = ({ data }) => {
           );
         })}
       </div>
-      <div className="text-center mt-16 text-sm text-gray-700 flex justify-center items-center">
+      <div className="text-center mt-24 text-sm text-gray-700 flex justify-center items-center">
         Drag the images to rearrange
         <svg
           xmlns="http://www.w3.org/2000/svg"
