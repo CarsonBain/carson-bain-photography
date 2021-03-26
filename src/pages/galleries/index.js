@@ -9,7 +9,7 @@ const GalleriesPage = ({ data }) => {
       <div className="grid md:grid-cols-2 gap-12">
         {data.allContentfulGallery.nodes.map((node) => (
           <Link
-            className="relative group"
+            className="relative group flex"
             key={node.slug}
             to={`/galleries/${node.slug}`}
           >
