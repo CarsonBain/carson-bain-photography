@@ -9,6 +9,7 @@ export default function GalleryPage(props) {
       <div className='space-y-6 md:space-y-16 flex-col'>
         {props.data.contentfulGallery.images.map((image, index) => (
           <GatsbyImage
+            loading={ index === 0 ? 'eager' : 'lazy'}
             image={image.gatsbyImageData}
             key={index}
             alt={image.fileName}
