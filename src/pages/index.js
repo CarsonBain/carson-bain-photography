@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage } from 'gatsby-plugin-image';
 import Layout from '../components/layout';
 import Draggable from 'react-draggable';
 
@@ -14,10 +14,11 @@ const IndexPage = ({ data }) => {
             <Draggable key={image} bounds="body">
               <div className="max-w-sm cursor-move w-full">
                 <GatsbyImage
+                  loading="eager"
                   image={image.gatsbyImageData}
                   alt={image.title}
-                  draggable={false}>
-                </GatsbyImage>
+                  draggable={false}
+                ></GatsbyImage>
               </div>
             </Draggable>
           );
@@ -48,10 +49,7 @@ export const query = graphql`
   {
     contentfulHomePage {
       collageImages {
-        gatsbyImageData(
-          layout: CONSTRAINED
-          width: 600
-          formats: [AUTO, WEBP])
+        gatsbyImageData(layout: CONSTRAINED, width: 600, formats: [AUTO, WEBP])
       }
     }
   }

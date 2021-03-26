@@ -26,6 +26,7 @@ export const query = graphql`
       images {
         gatsbyImageData(
           layout: CONSTRAINED
+          width: 1024
           formats: [AUTO, WEBP])
       }
     }
