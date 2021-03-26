@@ -13,7 +13,8 @@ const WallpapersPage = ({ data }) => {
               image={image.gatsbyImageData}
               key={index}
               alt="test"
-              className="rounded-xl shadow-lg"
+              imgClassName="rounded-xl shadow-lg"
+              className="rounded-xl"
             ></GatsbyImage>
             <div className="mt-4 flex flex-col items-center">
               <span className="text-gray-600 text-xs md:text-sm">IPhone</span>
